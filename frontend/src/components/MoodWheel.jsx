@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import './MoodWheel.css';
 
 function MoodWheel() {
@@ -12,12 +13,41 @@ function MoodWheel() {
     { name: 'Creative', angle: 337.5, icon: '🎨' },
   ];
 
+  const [typedText, setTypedText] = useState(''); // Initialize as an empty string
+  const [showCursor, setShowCursor] = useState(true);
+  const fullText = 'How are you feeling?';
+
+  useEffect(() => {
+    let index = 0;
+    const typingInterval = setInterval(() => {
+      if (index < fullText.length) {
+        setTypedText((prev) => prev + fullText[index]);
+        index++;
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, 100); // Typing speed in milliseconds
+
+    const cursorBlinkInterval = setInterval(() => {
+      setShowCursor((prev) => !prev);
+    }, 500); // Blinking speed in milliseconds
+
+    return () => {
+      clearInterval(typingInterval);
+      clearInterval(cursorBlinkInterval);
+    };
+  }, []);
+
   const handleMoodClick = (mood) => {
     alert(`You selected: ${mood}`);
   };
 
   return (
     <div className="mood-wheel-container">
+      <h1 className="mood-wheel__label">
+        {typedText}
+        {showCursor && <span className="mood-wheel__cursor">|</span>}
+      </h1>
       <div className="mood-wheel">
         <div className="mood-wheel__center">
           {moods.map((mood, index) => (
@@ -51,7 +81,6 @@ function MoodWheel() {
           ))}
         </div>
       </div>
-      <div className="mood-wheel__label">How are you feeling today?</div>
     </div>
   );
 }
