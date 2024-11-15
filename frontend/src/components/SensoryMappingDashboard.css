@@ -1,23 +1,76 @@
-/* src/styles/SensoryMappingDashboard.css */
+/* Sensory Mapping Dashboard Styling */
 .sensory-mapping-dashboard {
-  margin: 2rem;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #fef9e7, #fbe8d3); /* Warm pastel gradient */
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease; /* Smooth background and shadow transition */
+  width: 90%;
+  max-width: 1200px;
+}
+
+.sensory-mapping-dashboard:hover {
+  transform: scale(1.03); /* Slight increase in scale */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+  background: linear-gradient(135deg, #fce4ec, #ffe0b2); /* Soft background color shift */
 }
 
 .sensory-mapping-dashboard__control {
   display: flex;
   align-items: center;
   margin: 1rem 0;
+  transition: all 0.3s ease; /* Apply smooth transition for all properties */
 }
 
 .sensory-mapping-dashboard__control label {
-  width: 100px;
+  font-weight: bold;
+  color: #4e342e; /* Chocolate brown */
+  width: 120px;
+  transition: color 0.3s ease; /* Smooth transition for label color */
 }
 
 .sensory-mapping-dashboard__control input[type='range'] {
   flex-grow: 1;
   margin: 0 1rem;
+  accent-color: #ff7043; /* Vibrant orange */
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease; /* Smooth transformation */
+}
+
+.sensory-mapping-dashboard__control input[type='range']:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+  background-color: #ffab91; /* Change color of slider when hovered */
 }
 
 .sensory-mapping-dashboard__control select {
   margin-left: 1rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #ff7043;
+  background: #ffe0b2;
+  color: #4e342e;
+  font-weight: bold;
+  transition: all 0.3s ease; /* Smooth transition for all properties */
+}
+
+.sensory-mapping-dashboard__control select:hover {
+  background: #ffab91; /* Softer orange */
+  transform: scale(1.05); /* Slight scale on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add subtle shadow on hover */
+}
+
+/* Animation for Entrance */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sensory-mapping-dashboard {
+  animation: fadeIn 0.8s ease-out; /* Smooth fade-in animation */
 }
