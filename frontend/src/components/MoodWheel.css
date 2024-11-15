@@ -1,6 +1,3 @@
-/* src/components/MoodWheel.css */
-
-/* CSS Variables for Easy Customization */
 :root {
   --wheel-size: 420px; /* Diameter of the wheel */
   --button-size: 60px; /* Diameter of each button */
@@ -18,7 +15,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 50px auto;
+  margin: 140px auto;
   position: relative;
 }
 
@@ -27,7 +24,7 @@
   position: relative;
   width: var(--wheel-size);
   height: var(--wheel-size);
-  border-radius: 50%;
+  border-radius: 60%;
   background: var(--wheel-bg-color);
   box-shadow: 0 4px 12px var(--shadow-color);
   display: flex;
@@ -45,8 +42,8 @@
 /* Mood Option Positioning */
 .mood-wheel__option {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 45%;
+  left: 45%;
   transform-origin: center center;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -141,5 +138,5 @@
 
 /* Optional: Slight Wheel Rotation on Hover */
 .mood-wheel-container:hover .mood-wheel {
-  transform: rotate(5deg);
+  transform: rotate(20deg);
 }
